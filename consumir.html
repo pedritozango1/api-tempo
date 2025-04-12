@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="conatinner">
+        <button class="registar">Inserir</button>
+        <button class="buscar">BuscarID</button>
+    </div>
+</body>
+
+<script>
+    let objectoTempo = {
+        data: "2024-04-12",
+        temp_min: 29.0,
+        temp_max: 22.8,
+        descricao: "ddd",
+        iconeclima: "hhh"
+    }
+    let btnregistar = document.querySelector(".registar");
+    let buscar = document.querySelector(".buscar");
+    buscar.addEventListener("click", () => {
+        buscarTempoID("67fa6bcab695d30d61d1a218");
+    })
+    btnregistar.addEventListener("click", () => {
+        registarConsumir(objectoTempo);
+    })
+    async function registarConsumir(objectoTempo) {
+        let cabecario = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(objectoTempo)
+        };
+
+        try {
+            const resposta = await fetch("http://localhost:5000/store", cabecario);
+            const dados = await resposta.json();
+            console.log(dados);
+        } catch (erro) {
+            console.log("Erro: " + erro);
+        }
+    }
+
+    async function buscarTempoID(id) {
+        try {
+            let resposta = await fetch("http://localhost:5000/buscarID?id=" + id);
+            let dados = await resposta.json();
+            console.log(dados);
+        } catch (erro) {
+            console.log("Erro: " + erro);
+        }
+    }
+
+</script>
+
+</html>
