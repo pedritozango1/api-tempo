@@ -15,13 +15,55 @@
 </body>
 
 <script>
-    let objectoTempo = {
-        data: "2027-04-32",
-        temp_min: 12.9,
-        temp_max: 15,
-        descricao: "dd",
-        iconeclima: "bb"
-    }
+    const objectoTempo = {
+            cidade: "Luanda",
+            pais: "AO",
+            iconeClima: "01d",
+            descricao: "Céu limpo",
+            temperatura: 30,
+            temp_max: 32,
+            temp_min: 27,
+            sensacao: 31,
+            humidade: 60,
+            pressao: 1012,
+            vento: 5.4,
+            nuvens: 0,
+            timezone: 3600,
+            dataHora: Date.now(),
+            longitude: 13.2344,
+            latitude: -8.8383,
+            previsoes: [
+                {
+                data: "2025-04-13",
+                temp_min: 26,
+                temp_max: 33,
+                descricao: "Ensolarado",
+                iconeclima: "01d"
+                },
+                {
+                data: "2025-04-14",
+                temp_min: 25,
+                temp_max: 32,
+                descricao: "Parcialmente nublado",
+                iconeclima: "02d"
+                },
+                {
+                data: "2025-04-15",
+                temp_min: 24,
+                temp_max: 31,
+                descricao: "Chuva leve",
+                iconeclima: "10d"
+                },
+                {
+                data: "2025-04-16",
+                temp_min: 23,
+                temp_max: 30,
+                descricao: "Nublado",
+                iconeclima: "04d"
+                }
+            ]
+        };
+
     let btnregistar = document.querySelector(".registar");
     let buscar = document.querySelector(".buscar");
     buscar.addEventListener("click", () => {
