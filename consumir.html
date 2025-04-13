@@ -16,11 +16,11 @@
 
 <script>
     let objectoTempo = {
-        data: "2024-04-12",
-        temp_min: 29.0,
-        temp_max: 22.8,
-        descricao: "ddd",
-        iconeclima: "hhh"
+        data: "2027-04-32",
+        temp_min: 12.9,
+        temp_max: 15,
+        descricao: "dd",
+        iconeclima: "bb"
     }
     let btnregistar = document.querySelector(".registar");
     let buscar = document.querySelector(".buscar");
@@ -40,7 +40,7 @@
         };
 
         try {
-            const resposta = await fetch("http://localhost:5000/store", cabecario);
+            const resposta = await fetch("https://api-tempo-6usu.onrender.com/store", cabecario);
             const dados = await resposta.json();
             console.log(dados);
         } catch (erro) {
@@ -50,7 +50,7 @@
 
     async function buscarTempoID(id) {
         try {
-            let resposta = await fetch("http://localhost:5000/buscarID?id=" + id);
+            let resposta = await fetch("https://api-tempo-6usu.onrender.com/buscarID?id=" + id);
             let dados = await resposta.json();
             console.log(dados);
         } catch (erro) {
